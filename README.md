@@ -1,6 +1,6 @@
 # Java-Fun
 
-I'm totally aware this code actually sucks and is incredibly unefficient, however I thought that maybe someone would like the concept itself.
+I'm totally aware this code actually sucks and is incredibly unefficient, however I thought that maybe someone would like the concept itself or the ways I managed to handle some problems.
 
 Also, it had been written before I even learned the point of creating classes, so I had been using them only as some kind of 'divisor' to different-purpose functions, which almost all are therefore made static.
 
