@@ -31,7 +31,7 @@ public class Heap {
     }
 
     protected boolean notLeaf(int position) {
-        return position < (sizeOfHeap / 2) || position > sizeOfHeap;
+        return position < ((sizeOfHeap + 1)/ 2) || position > sizeOfHeap;
     }
 
     protected void swapNodes(int firstNode, int secondNode) {
