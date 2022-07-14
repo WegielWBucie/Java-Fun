@@ -6,7 +6,7 @@ public class Main {
 
         ArrayList<Integer>ints = new ArrayList<>();
         ints.add(1);
-        Pair pair = new Pair(1, ints);
+        Node pair = new Node(1, ints);
 
     }
 }
