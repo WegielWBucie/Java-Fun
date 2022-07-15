@@ -9,7 +9,7 @@ public class Main {
 
         mPriorityQueue.display();
 
-        mPriorityQueue.insert(new Node(10, 10));
+        mPriorityQueue.insert(new Node(11, 10));
         mPriorityQueue.display();
 
         mPriorityQueue.insert(new Node(9, 10));
@@ -30,23 +30,16 @@ public class Main {
         mPriorityQueue.insert(new Node(1, 10));
         mPriorityQueue.display();
 
-        mPriorityQueue.poll();
         mPriorityQueue.display();
 
         mPriorityQueue.poll();
-        mPriorityQueue.display();
-
         mPriorityQueue.poll();
-        mPriorityQueue.display();
-
         mPriorityQueue.poll();
-        mPriorityQueue.display();
-
         mPriorityQueue.poll();
-        mPriorityQueue.display();
-
         mPriorityQueue.poll();
-        mPriorityQueue.display();
+        mPriorityQueue.poll();
+        mPriorityQueue.poll();
+        mPriorityQueue.poll();
 
 
     }

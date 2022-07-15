@@ -1,4 +1,3 @@
-import javax.crypto.spec.PSource;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,7 +20,7 @@ public class MPriorityQueue {
     }
 
     private boolean notLeaf(int position) {
-        return position < ((sizeOfHeap + 1) / 2) || position > sizeOfHeap;
+        return position <= (sizeOfHeap / 2);
     }
 
     private void heapify(Integer position) {
@@ -42,7 +41,7 @@ public class MPriorityQueue {
     }
 
     public void designQueue() {
-        for(int position = sizeOfHeap / 2; position >= 1; position--) {
+        for(int position = (sizeOfHeap - 1) / 2; position >= 1; position--) {
             heapify(position);
         }
     }
@@ -82,7 +81,7 @@ public class MPriorityQueue {
     }
 
     public Object peek() {
-        return queue.get(0);
+        return queue.get(FRONT);
     }
 
     public void display() {
