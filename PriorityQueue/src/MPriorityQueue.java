@@ -28,6 +28,7 @@ public class MPriorityQueue {
             if(queue.get(position).priority < queue.get(getLeftChildPosition(position)).priority ||
                     queue.get(position).priority < queue.get(getRightChildPosition(position)).priority) {
 
+
                 if(queue.get(getLeftChildPosition(position)).priority > queue.get(getRightChildPosition(position)).priority) {
                     swapNodes(position, getLeftChildPosition(position));
                     heapify(position);
@@ -42,7 +43,7 @@ public class MPriorityQueue {
 
     public void designQueue() {
         for(int position = (sizeOfHeap - 1) / 2; position >= 1; position--) {
-            heapify(position);
+                heapify(position);
         }
     }
 

@@ -1,45 +1,28 @@
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
 
         MPriorityQueue  mPriorityQueue = new MPriorityQueue();
 
+        Random random = new Random();
+
+        int size = random.nextInt(5, 20);
+
+
+        for(int i = 0; i < size; i++) {
+            mPriorityQueue.insert(new Node(random.nextInt(0, 20000), random.nextInt(0,10)));
+        }
+
+        mPriorityQueue.designQueue();
         mPriorityQueue.display();
 
-        mPriorityQueue.insert(new Node(11, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(9, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(8, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(2, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(4, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(10, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.insert(new Node(1, 10));
-        mPriorityQueue.display();
-
-        mPriorityQueue.display();
-
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
-        mPriorityQueue.poll();
+        for(int i = 0; i < size; i++) {
+            mPriorityQueue.poll();
+        }
 
 
     }
