@@ -25,25 +25,29 @@ public class MPriorityQueue {
 
     private void heapify(Integer position) {
         if(notLeaf(position)) {
-            if(queue.get(position).priority < queue.get(getLeftChildPosition(position)).priority ||
-                    queue.get(position).priority < queue.get(getRightChildPosition(position)).priority) {
+            try {
+                if(queue.get(position).priority < queue.get(getLeftChildPosition(position)).priority ||
+                        queue.get(position).priority < queue.get(getRightChildPosition(position)).priority) {
 
-
-                if(queue.get(getLeftChildPosition(position)).priority > queue.get(getRightChildPosition(position)).priority) {
-                    swapNodes(position, getLeftChildPosition(position));
-                    heapify(position);
+                    if(queue.get(getLeftChildPosition(position)).priority > queue.get(getRightChildPosition(position)).priority) {
+                        swapNodes(position, getLeftChildPosition(position));
+                        heapify(position);
+                    }
+                    else {
+                        swapNodes(position, getRightChildPosition(position));
+                        heapify(position);
+                    }
                 }
-                else {
-                    swapNodes(position, getRightChildPosition(position));
-                    heapify(position);
-                }
+            }
+            catch(IndexOutOfBoundsException indexOutOfBoundsException) {
+                return;
             }
         }
     }
 
     public void designQueue() {
-        for(int position = (sizeOfHeap - 1) / 2; position >= 1; position--) {
-                heapify(position);
+        for(int position = sizeOfHeap / 2; position >= 1; position--) {
+            heapify(position);
         }
     }
 
@@ -64,8 +68,10 @@ public class MPriorityQueue {
     public void insert(Node node) {
         queue.add(node);
         sizeOfHeap++;
-        while(queue.get(sizeOfHeap).priority > queue.get(getParentPosition(sizeOfHeap)).priority) {
-            swapNodes(sizeOfHeap, getParentPosition(sizeOfHeap));
+        int temporary = sizeOfHeap;
+        while(queue.get(temporary).priority > queue.get(getParentPosition(temporary)).priority) {
+            swapNodes(temporary, getParentPosition(temporary));
+            temporary = getParentPosition(temporary);
         }
     }
 
