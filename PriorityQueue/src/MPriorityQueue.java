@@ -31,16 +31,20 @@ public class MPriorityQueue {
 
                     if(queue.get(getLeftChildPosition(position)).priority > queue.get(getRightChildPosition(position)).priority) {
                         swapNodes(position, getLeftChildPosition(position));
-                        heapify(position);
+                        heapify(getLeftChildPosition(position));
+                        heapify(getRightChildPosition(position));
                     }
                     else {
                         swapNodes(position, getRightChildPosition(position));
-                        heapify(position);
+                        heapify(getLeftChildPosition(position));
+                        heapify(getRightChildPosition(position));
                     }
                 }
             }
             catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-                return;
+                if(queue.get(position).priority < queue.get(getLeftChildPosition(position)).priority) {
+                    swapNodes(position, getLeftChildPosition(position));
+                }
             }
         }
     }
@@ -99,12 +103,13 @@ public class MPriorityQueue {
     }
 
 
-    public void poll() {
+    public int poll() {
         try {
             Object value = peek();
             Integer key = queue.get(FRONT).priority;
             remove(FRONT);
             System.out.println(key);
+            return key;
         }
         catch (IndexOutOfBoundsException indexOutOfBoundsException) {
             System.out.println("Underflow");
@@ -112,5 +117,6 @@ public class MPriorityQueue {
         catch (Exception exception) {
             System.out.println(exception.getLocalizedMessage());
         }
+        return 0;
     }
 }

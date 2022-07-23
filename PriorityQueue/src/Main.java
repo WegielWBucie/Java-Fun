@@ -1,28 +1,41 @@
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
 
-        MPriorityQueue  mPriorityQueue = new MPriorityQueue();
+        boolean doBreak = false;
+        int iterator = 100;
+        while(!doBreak && iterator > 0){
+            MPriorityQueue  mPriorityQueue = new MPriorityQueue();
 
-        Random random = new Random();
+            Random random = new Random();
 
-        int size = random.nextInt(5, 20);
+            int size = random.nextInt(5, 20);
 
+            ArrayList<Integer>priorities = new ArrayList<>();
 
-        for(int i = 0; i < size; i++) {
-            mPriorityQueue.insert(new Node(random.nextInt(0, 20000), random.nextInt(0,10)));
+            for(int i = 0; i < size; i++) {
+                mPriorityQueue.insert(new Node(random.nextInt(0, 20000), random.nextInt(0,10)));
+            }
+
+            mPriorityQueue.designQueue();
+            mPriorityQueue.display();
+
+            for(int i = 0; i < size; i++) {
+                priorities.add(mPriorityQueue.poll());
+            }
+
+            for(int i = 0; i < size - 1; i++) {
+                if(priorities.get(i) < priorities.get(i + 1)) {
+                    System.out.println("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
+                    doBreak = true;
+                    break;
+                }
+            }
+            iterator--;
         }
 
-        mPriorityQueue.designQueue();
-        mPriorityQueue.display();
-
-        for(int i = 0; i < size; i++) {
-            mPriorityQueue.poll();
-        }
 
 
     }
