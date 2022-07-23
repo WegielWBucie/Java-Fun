@@ -10,8 +10,4 @@ public class Node {
         this.priority = priority;
         this.value = value;
     }
-
-
-
-
 }

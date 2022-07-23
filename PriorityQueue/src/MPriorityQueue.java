@@ -102,7 +102,6 @@ public class MPriorityQueue {
         System.out.println();
     }
 
-
     public int poll() {
         try {
             Object value = peek();

@@ -6,7 +6,9 @@ public class Main {
 
         boolean doBreak = false;
         int iterator = 100;
+
         while(!doBreak && iterator > 0){
+
             MPriorityQueue  mPriorityQueue = new MPriorityQueue();
 
             Random random = new Random();
@@ -34,9 +36,8 @@ public class Main {
                 }
             }
             iterator--;
+
+            System.out.println();
         }
-
-
-
     }
 }
