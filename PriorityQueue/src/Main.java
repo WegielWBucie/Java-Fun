@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         boolean doBreak = false;
-        int iterator = 100;
+        int iterator = 1000;
 
         while(!doBreak && iterator > 0){
 
@@ -13,7 +13,7 @@ public class Main {
 
             Random random = new Random();
 
-            int size = random.nextInt(5, 20);
+            int size = random.nextInt(5, 200);
 
             ArrayList<Integer>priorities = new ArrayList<>();
 
@@ -23,21 +23,26 @@ public class Main {
 
             mPriorityQueue.designQueue();
             mPriorityQueue.display();
+            System.out.println();
 
             for(int i = 0; i < size; i++) {
-                priorities.add(mPriorityQueue.poll());
+                priorities.add(mPriorityQueue.poll().priority);
             }
 
             for(int i = 0; i < size - 1; i++) {
                 if(priorities.get(i) < priorities.get(i + 1)) {
-                    System.out.println("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
                     doBreak = true;
                     break;
                 }
             }
-            iterator--;
 
-            System.out.println();
+            iterator--;
+        }
+        if(!doBreak) {
+            System.out.println("All samples positive.");
+        }
+        else {
+            System.out.println("Something's wrong!!");
         }
     }
 }

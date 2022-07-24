@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Objects;
-
 public class Node {
 
     Integer priority;

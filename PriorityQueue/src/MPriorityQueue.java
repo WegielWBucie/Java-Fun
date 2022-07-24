@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class MPriorityQueue {
 
-    private ArrayList<Node>queue;
+    private final ArrayList<Node>queue;
     private int sizeOfHeap;
     private static final int FRONT = 1;
 
@@ -32,11 +32,9 @@ public class MPriorityQueue {
                     if(queue.get(getLeftChildPosition(position)).priority > queue.get(getRightChildPosition(position)).priority) {
                         swapNodes(position, getLeftChildPosition(position));
                         heapify(getLeftChildPosition(position));
-                        heapify(getRightChildPosition(position));
                     }
                     else {
                         swapNodes(position, getRightChildPosition(position));
-                        heapify(getLeftChildPosition(position));
                         heapify(getRightChildPosition(position));
                     }
                 }
@@ -82,16 +80,15 @@ public class MPriorityQueue {
     public void remove(int indexToRemove) {
         try {
             swapNodes(indexToRemove, sizeOfHeap);
-            queue.remove(sizeOfHeap);
-            sizeOfHeap--;
-            designQueue();
+            queue.remove(sizeOfHeap--);
+            heapify(indexToRemove);
         }
         catch(IndexOutOfBoundsException indexOutOfBoundsException) {
             System.out.println("Wrong index!");
         }
     }
 
-    public Object peek() {
+    public Node peek() {
         return queue.get(FRONT);
     }
 
@@ -102,13 +99,11 @@ public class MPriorityQueue {
         System.out.println();
     }
 
-    public int poll() {
+    public Node poll() {
         try {
-            Object value = peek();
-            Integer key = queue.get(FRONT).priority;
+            Node mainRoot = peek();
             remove(FRONT);
-            System.out.println(key);
-            return key;
+            return mainRoot;
         }
         catch (IndexOutOfBoundsException indexOutOfBoundsException) {
             System.out.println("Underflow");
@@ -116,6 +111,6 @@ public class MPriorityQueue {
         catch (Exception exception) {
             System.out.println(exception.getLocalizedMessage());
         }
-        return 0;
+        return new Node(0,0);
     }
 }
