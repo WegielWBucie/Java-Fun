@@ -18,7 +18,8 @@ public class Main {
             ArrayList<Integer>priorities = new ArrayList<>();
 
             for(int i = 0; i < size; i++) {
-                mPriorityQueue.insert(new Node(random.nextInt(0, 20000), random.nextInt(0,10)));
+//                mPriorityQueue.insert(new Node(random.nextInt(0, 20000), random.nextInt(0,10)));
+                mPriorityQueue.insert(new Node(random.nextInt(0, 20000)));
             }
 
             mPriorityQueue.designQueue();
@@ -26,7 +27,9 @@ public class Main {
             System.out.println();
 
             for(int i = 0; i < size; i++) {
-                priorities.add(mPriorityQueue.poll().priority);
+                Node currentPoll = mPriorityQueue.poll();
+                priorities.add(currentPoll.priority);
+                System.out.println(currentPoll.value);
             }
 
             for(int i = 0; i < size - 1; i++) {

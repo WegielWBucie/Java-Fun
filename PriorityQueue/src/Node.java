@@ -7,4 +7,9 @@ public class Node {
         this.priority = priority;
         this.value = value;
     }
+
+    public Node(Integer value) {
+        this.priority = value;
+        this.value = value;
+    }
 }
